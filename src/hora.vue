@@ -2,6 +2,7 @@
 export default {
   data() {
     return {
+      // Definición del horario académico con los cursos correspondientes a cada día de la semana
       horarioAcademico: [
         {
           hora: '7:00 - 8:00',
@@ -11,7 +12,7 @@ export default {
           jueves: 'Matemáticas Discretas',
           viernes: 'Taller de Radio'
         },
-        {
+    {
           hora: '8:00 - 9:00',
           lunes: 'Bases de Datos',
           martes: 'Física',
@@ -44,6 +45,7 @@ export default {
           viernes: 'Videojuegos Educativos'
         }
       ],
+      // Definición de las actividades extracurriculares
       actividadesExtracurriculares: [
         {
           dia: 'Lunes',
@@ -76,16 +78,18 @@ export default {
           hora: '14:00 - 17:00'
         },
         {
-            dia: 'Sabado',
+          dia: 'Sabado',
           actividad: 'FUTBOL',
           participantes: 'JUAN ANTONIO NICOLAS PEREZ',
           hora: '14:00 - 17:00'
         }
       ],
+      // Variable que almacena la pestaña activa, por defecto 'academico'
       activeTab: 'academico'
     }
   },
   methods: {
+    // Método para cambiar entre pestañas de horario académico y actividades extracurriculares
     setActiveTab(tab) {
       this.activeTab = tab
     }
@@ -97,6 +101,7 @@ export default {
   <div class="horario-container">
     <h1 class="titulo-horario">HORARIO</h1>
     
+    <!-- Botones para cambiar entre Horario Académico y Actividades Extracurriculares -->
     <div class="tabs">
       <button 
         @click="setActiveTab('academico')" 
@@ -112,6 +117,7 @@ export default {
       </button>
     </div>
     
+    <!-- Tabla de Horario Académico -->
     <div v-if="activeTab === 'academico'" class="tabla-container">
       <table class="tabla-horario">
         <thead>
@@ -137,6 +143,7 @@ export default {
       </table>
     </div>
     
+    <!-- Tabla de Actividades Extracurriculares -->
     <div v-if="activeTab === 'extracurriculares'" class="tabla-container">
       <table class="tabla-actividades">
         <thead>
@@ -159,6 +166,7 @@ export default {
     </div>
   </div>
 </template>
+
 
 <style scoped>
 .horario-container {
